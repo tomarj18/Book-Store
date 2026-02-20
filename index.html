@@ -1,0 +1,176 @@
+<!-- index.html (REPLACE YOUR WHOLE FILE WITH THIS) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenith Bookstore</title>
+
+  <!-- Tailwind (ok to keep, but we are not relying on it for layout anymore) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <span class="logo-text">Zenith Bookstore</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Bestsellers</a>
+        <a href="#" class="nav-link">New Arrivals</a>
+        <a href="#" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-icons">
+        <button class="icon-btn">🔍</button>
+        <button class="icon-btn">👤</button>
+        <button class="icon-btn">🛒</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="hero-title">Explore Your Next Adventure</h1>
+      <p class="hero-subtitle">Discover stories that captivate your imagination.</p>
+    </div>
+  </section>
+
+  <!-- Genre Cards Section -->
+  <section class="genre-cards-section">
+    <div class="container mx-auto px-4">
+      <div class="genre-grid">
+
+        <div class="genre-card">
+          <img src="images/fantasy.png" alt="Fantasy Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Fantasy</span>
+            <h2 class="genre-title">Fantasy</h2>
+            <button class="explore-btn">Explore Fantasy →</button>
+          </div>
+        </div>
+
+        <div class="genre-card">
+          <img src="images/romance.png" alt="Romance Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Romance</span>
+            <h2 class="genre-title">Romance</h2>
+            <button class="explore-btn">Explore Romance →</button>
+          </div>
+        </div>
+
+        <div class="genre-card">
+          <img src="images/horror.png" alt="Horror Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Horror</span>
+            <h2 class="genre-title">Horror</h2>
+            <button class="explore-btn">Explore Horror →</button>
+          </div>
+        </div>
+
+        <div class="genre-card">
+          <img src="images/scifi.png" alt="Sci-Fi Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Sci-Fi</span>
+            <h2 class="genre-title">Sci-Fi</h2>
+            <button class="explore-btn">Explore Sci-Fi →</button>
+          </div>
+        </div>
+
+        <div class="genre-card">
+          <img src="images/mystery.png" alt="Mystery Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Mystery</span>
+            <h2 class="genre-title">Mystery</h2>
+            <button class="explore-btn">Explore Mystery →</button>
+          </div>
+        </div>
+
+        <div class="genre-card">
+          <img src="images/adventure.png" alt="Adventure Book" class="genre-book-img">
+          <div class="genre-overlay">
+            <span class="genre-badge">Adventure</span>
+            <h2 class="genre-title">Adventure</h2>
+            <button class="explore-btn">Explore Adventure →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Collections Section -->
+  <section class="featured-section">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="section-title">Featured Collections</h2>
+      <p class="section-subtitle">Bestselling & New Releases</p>
+
+      <div id="featured-books" class="books-grid"></div>
+    </div>
+  </section>
+
+  <!-- Recently Added Books Section -->
+  <section class="api-books-section">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="section-title">Recently Added Books</h2>
+      <p class="section-subtitle">Books added by our community</p>
+
+      <!-- IMPORTANT: this id must match the JS -->
+      <div id="api-books" class="books-grid"></div>
+    </div>
+  </section>
+
+  <!-- Add Book Form Modal -->
+  <div id="add-book-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close-modal">✕</button>
+      <h2>Add a New Book</h2>
+
+      <form id="add-book-form">
+        <div class="form-group">
+          <label for="book-title">Title</label>
+          <input type="text" id="book-title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="book-author">Author</label>
+          <input type="text" id="book-author" required>
+        </div>
+
+        <div class="form-group">
+          <label for="book-genre">Genre</label>
+          <select id="book-genre" required>
+            <option value="">Select genre...</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="romance">Romance</option>
+            <option value="horror">Horror</option>
+            <option value="adventure">Adventure</option>
+            <option value="mystery">Mystery</option>
+            <option value="sci-fi">Sci-Fi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="book-description">Description</label>
+          <textarea id="book-description" required rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Add Book</button>
+      </form>
+    </div>
+  </div>
+
+  <button id="open-add-modal" class="floating-add-btn">+ Add Book</button>
+
+  <script src="index.js" defer></script>
+</body>
+</html>
